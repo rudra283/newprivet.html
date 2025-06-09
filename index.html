@@ -1,421 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>▄︻PRIVET┻HACKS═┳一</title>
-    <style>
-        body {
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ_G9U9095poYEIvtg8fnA2Ef3dcjLEebptQ&s');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
-
-        .container-wrapper {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        .image-container {
-            width: 100%;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .image-container img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .period-number {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: "Lucida Console", "Courier New", monospace;
-            font-size: 1.5rem;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .details {
-          font-family: "Lucida Console", "Courier New", monospace;
-            font-size: 1rem;
-            font-size: bold;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .details p {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        .details p span {
-            color: #00ff00;
-            font-weight: bold;
-        }
-
-        .prediction-container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-        }
-
-        .prediction-container h2 {
-          font: italic small-caps bold 12px/30px Georgia, serif;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .divider {
-            height: 1px;
-            background-color: #444;
-            margin: 10px 0;
-        }
-
-        .cn-image img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px auto;
-            display: block;
-        }
-
-        .bs-circle {
-          font: italic small-caps bold 12px/30px Georgia, serif;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #444;
-            color: #fff;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 20px auto;
-        }
-
-        .result-button {
-          font: italic small-caps bold 12px/30px Georgia, serif;
-            padding: 10px 20px;
-            background-color: #DAA520;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .result-button:hover {
-            background-color: #FFD700;
-        }
-
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .loading-spinner {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid #fff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media screen and (max-width: 768px) {
-            .details p {
-                font-size: 0.9rem;
-                padding: 8px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Professional Internship Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eceff1;
+      margin: 0; padding: 20px;
+    }
+    h1 { text-align:center; color:#333; }
+    .tabs {
+      display:flex; justify-content:center; margin-bottom:20px;
+    }
+    .tab-btn {
+      padding:12px 25px; background:#ccc; border:none; cursor:pointer;
+      margin:0 5px; border-radius:5px 5px 0 0;
+    }
+    .tab-btn.active { background:#607d8b; color:white; }
+    .tab {
+      background:white; max-width:800px; margin:auto; padding:20px;
+      border:1px solid #b0bec5; border-top:none; box-shadow:0 4px 8px rgba(0,0,0,0.1);
+      border-radius:0 0 5px 5px;
+    }
+    .tab:not(.active) { display:none; }
+    label {
+      display:block; margin:10px 0 5px; font-weight:600;
+    }
+    input,select { width:100%; padding:8px; font-size:15px; border:1px solid #90a4ae; border-radius:4px; }
+    button { margin-top:15px; padding:10px 20px; font-size:16px; border:none; color:white; cursor:pointer; border-radius:4px; }
+    .generate-btn { background:#1976d2; }
+    .print-btn { background:#388e3c; margin-top:10px; }
+    .preview { margin-top:20px; padding:20px; border:1px solid #90a4ae; background:#fafafa; border-radius:5px; }
+    .doc {
+      padding:25px; border:3px solid #37474f; position:relative;
+      background-repeat:no-repeat; background-position:center top;
+      min-height:500px;
+    }
+    .doc .logo { max-height:80px; display:block; margin:0 auto 15px; }
+    .doc h2 { text-align:center; margin:10px 0; }
+    .doc p { line-height:1.6; margin:8px 0; }
+    .footer { margin-top:40px; }
+    .footer p { margin:4px 0; }
+    .qr { position:absolute; bottom:20px; right:20px; width:90px; height:90px; }
+    @media print {
+      body * { visibility:hidden; }
+      .doc, .doc * { visibility:visible; }
+      .doc { position:absolute; top:0; left:0; width:100%; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container-wrapper">
-        <div class="image-container">
-            <img src="https://bdgwinbet7.com/assets/png/wingoissue-ba51f474.png" alt="Image">
-            <div class="period-number" id="period-number">Loading...</div>
-        </div>
-        <div class="details">
-            <p id="abt-user">▄︻ADNAN┻═HACKS┳一 <span id="username"></span></p>
-<p id="abt-user">▄︻PRIVET┻HACKS═┳一<span id="registered-on"></span></p>
-        </div>
-        <div class="prediction-container">
-            <h2>▄︻PRIVET┻HACKS═┳一</h2>
-            <div class="divider"></div>
-            <div class="cn-image">
-                <img src="" id="cn-img" alt="C/N Image">
-            </div>
-            <div class="divider"></div>
-            <div class="bs-circle" id="bs-circle">B/S ?</div>
-            <button class="result-button" id="result-button">Get Result</button>
-        </div>
-    </div>
-    <div class="loading-overlay" id="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
-        <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const username = localStorage.getItem('username'); // Replace with dynamic username if available
-    const uid = localStorage.getItem('deviceID'); // Replace with dynamic UID if available
-    const endpoint = `data.php?user_det=${username}&uid=${uid}`;
-    
-    fetch(endpoint)
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "done") {
-                document.getElementById("username").innerText = username;
-                document.getElementById("registered-on").innerText = new Date(parseInt(data.start_date)).toLocaleString();
-                document.getElementById("expired-key-date").innerText = new Date(parseInt(data.end_date)).toLocaleString();
-             document.getElementById('time-left').innerText = data.left  
-             // startCountdown(data.left);
-                document.getElementById("server-status").innerText = "Server is connected";
-            } else {
-                document.getElementById("server-status").innerText = data.msg;
-                window.location.href = 'https://tksofficial.site/TKSMOD/';
-            }
-        })
-        .catch(error => {
-            document.getElementById("server-status").innerText = "Error connecting to server";
-            console.error('Error fetching data:', error);
-        });
 
-    
-});
+<h1>Professional Internship Offer & Certificate</h1>
 
-    
-     document.getElementById('username').innerText = localStorage.getItem('username');
-         document.getElementById('game-name').innerText = localStorage.getItem('game-name');
-        document.getElementById('game-version').innerText = localStorage.getItem('game-version');
-        document.getElementById('game-play-mod').innerText = localStorage.getItem('game-play-mod');
-     
-        
-        function navigate(page) {
-    const content = document.getElementById('content');
-    let title, text;
-//blocking page switch
-    switch(yaha_page_rahega_shirf) {
-        case 'bigMumbai':
-            title = 'Big Mumbai';
-            text = 'Welcome to Big Mumbai game. Start predicting colors!';
-            break;
-        case '91Club':
-            title = '91 Club';
-            text = 'Welcome to 91 Club game. Start predicting colors!';
-            break;
-        case 'tiranga':
-            title = 'Tiranga';
-            text = 'Welcome to Tiranga game. Start predicting colors!';
-            break;
-        case 'okWin':
-            title = 'OkWin';
-            text = 'Welcome to OkWin game. Start predicting colors!';
-            break;
-        case '82Lottery':
-            title = '82 Lottery';
-            text = 'Welcome to 82 Lottery game. Start predicting colors!';
-            break;
-        case 'colorGame':
-            title = 'Color Game';
-            text = 'Welcome to Color Game. Start predicting colors!';
-            break;
-        default:
-            title = 'Color Prediction Games';
-            text = 'Select a game from the menu to start playing!';
-    }
+<div class="tabs">
+  <button class="tab-btn active" data-tab="offer">Offer Letter</button>
+  <button class="tab-btn" data-tab="cert">Certificate</button>
+</div>
 
-    content.innerHTML = `<h2>${title}</h2><p>${text}</p><button id="getPredictionBtn" onclick="getPrediction()">Get Prediction</button><div id="gamePeriod" style="display: none;"><h3>Game Period: <span id="periodValue"></span></h3><h3>Game Result: <span id="resultValue"></span></h3></div>`;
-}
+<!-- Offer Letter Tab -->
+<div id="offer" class="tab active">
+  <form id="offerForm">
+    <label>Full Name</label><input type="text" id="oName" required>
+    <label>Address</label><input type="text" id="oAddress" required>
+    <label>Email</label><input type="email" id="oEmail" required>
+    <label>Phone</label><input type="text" id="oPhone" required>
+    <label>Course Name</label><input type="text" id="oCourse" required>
+    <label>Company</label>
+    <select id="oCompany">
+      <option value="google">Google</option>
+      <option value="nvidia">Nvidia</option>
+      <option value="infosys">Infosys</option>
+      <option value="ibm">IBM</option>
+      <option value="microtek">Microtek</option>
+    </select>
+    <label>Internship Duration (months)</label><input type="number" id="oDuration" min="1" required>
+    <label>Choose Background</label>
+    <select id="oBg">
+      <option value="plain">Plain</option>
+      <option value="classic">Classic</option>
+      <option value="modern">Modern Blue</option>
+    </select>
+    <button class="generate-btn">Generate Offer Letter</button>
+  </form>
 
-function getPrediction() {
-    
-    const username = localStorage.getItem('username'); // Replace with dynamic username if available
-    const uid = localStorage.getItem('deviceID'); // Replace with dynamic UID if available
-    const endpoint = `data.php?user_det=${username}&uid=${uid}`;
-    
-    fetch(endpoint)
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "done") {
-                document.getElementById("username").innerText = username;
-                document.getElementById("registered-on").innerText = new Date(parseInt(data.start_date)).toLocaleString();
-                document.getElementById("expired-key-date").innerText = new Date(parseInt(data.end_date)).toLocaleString();
-             document.getElementById('time-left').innerText = data.left  
-             document.getElementById('gamePeriod').style.display = 'block';
-             document.getElementById('periodValue').innerText = data.period;
-            document.getElementById('resultValue').innerText = data.result;
-             // startCountdown(data.left);
-                document.getElementById("server-status").innerText = "Server is connected";
-            } else {
-                document.getElementById("server-status").innerText = data.msg;
-                window.location.href = 'https://tksofficial.site/TKSMOD/';
-            }
-        })
-        .catch(error => {
-            document.getElementById("server-status").innerText = "Error connecting to server";
-            console.error('Error fetching data:', error);
-        });        
-}
+  <div class="preview">
+    <div id="offerPreview" class="doc"></div>
+    <button class="print-btn" onclick="printDoc('offerPreview')">Print/Download</button>
+  </div>
+</div>
 
-    </script>
+<!-- Certificate Tab -->
+<div id="cert" class="tab">
+  <form id="certForm">
+    <label>Full Name</label><input type="text" id="cName" required>
+    <label>Email</label><input type="email" id="cEmail" required>
+    <label>Phone</label><input type="text" id="cPhone" required>
+    <label>Course Name</label><input type="text" id="cCourse" required>
+    <label>Company</label>
+    <select id="cCompany">
+      <option value="google">Google</option>
+      <option value="nvidia">Nvidia</option>
+      <option value="infosys">Infosys</option>
+      <option value="ibm">IBM</option>
+      <option value="microtek">Microtek</option>
+    </select>
+    <label>Internship Duration (months)</label><input type="number" id="cDuration" min="1" required>
+    <label>Choose Background</label>
+    <select id="cBg">
+      <option value="plain">Plain</option>
+      <option value="classic">Classic</option>
+      <option value="modern">Modern Blue</option>
+    </select>
+    <button class="generate-btn">Generate Certificate</button>
+  </form>
+
+  <div class="preview">
+    <div id="certPreview" class="doc"></div>
+    <button class="print-btn" onclick="printDoc('certPreview')">Print/Download</button>
+  </div>
+</div>
 
 <script>
-    const imageUrls = {
-        n0: 'https://goagameb.com/assets/png/n0-30bd92d1.png',
-        n1: 'https://goagameb.com/assets/png/n1-dfccbff5.png',
-        n2: 'https://goagameb.com/assets/png/n2-c2913607.png',
-        n3: 'https://goagameb.com/assets/png/n3-f92c313f.png',
-        n4: 'https://goagameb.com/assets/png/n4-cb84933b.png',
-        n5: 'https://goagameb.com/assets/png/n5-49d0e9c5.png',
-        n6: 'https://goagameb.com/assets/png/n6-a56e0b9a.png',
-        n7: 'https://goagameb.com/assets/png/n7-5961a17f.png',
-        n8: 'https://goagameb.com/assets/png/n8-d4d951a4.png',
-        n9: 'https://goagameb.com/assets/png/n9-a20f6f42.png'
+  const companyData = {
+    google: {logo:"https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", hr:"Sundar Pichai", email:"hr@google.com", contact:"+1 650‑253‑0000"},
+    nvidia: {logo:"https://upload.wikimedia.org/wikipedia/en/2/21/Nvidia_logo.svg", hr:"Jensen Huang", email:"hr@nvidia.com", contact:"+1 408‑486‑2000"},
+    infosys: {logo:"https://upload.wikimedia.org/wikipedia/commons/5/55/Infosys_logo.svg", hr:"Salil Parekh", email:"hr@infosys.com", contact:"+91‑80‑2852‑0261"},
+    ibm: {logo:"https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", hr:"Arvind Krishna", email:"hr@ibm.com", contact:"+1 914‑499‑1900"},
+    microtek: {logo:"https://upload.wikimedia.org/wikipedia/commons/4/4f/Microtek_logo.svg", hr:"Rahul Jain", email:"hr@microtek.com", contact:"+91‑11‑4273‑0300"},
+  };
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    }
+  });
+
+  function applyBackground(el, bg) {
+    if(bg==='classic') { el.style.background="#fff url('https://i.imgur.com/PXvIh8F.png') center top/cover"; }
+    else if(bg==='modern') { el.style.background="linear-gradient(135deg, #8ec5fc, #e0c3fc)"; }
+    else { el.style.background="#fff"; }
+  }
+
+  function printDoc(id) {
+    window.print();
+  }
+
+  document.getElementById('offerForm').onsubmit = e => {
+    e.preventDefault();
+    const o = {
+      name:document.getElementById('oName').value,
+      addr:document.getElementById('oAddress').value,
+      email:document.getElementById('oEmail').value,
+      phone:document.getElementById('oPhone').value,
+      course:document.getElementById('oCourse').value,
+      compKey:document.getElementById('oCompany').value,
+      dur:document.getElementById('oDuration').value,
+      bg:document.getElementById('oBg').value
     };
+    const cmp = companyData[o.compKey];
+    const el = document.getElementById('offerPreview');
+    el.innerHTML = `
+      <img src="${cmp.logo}" class="logo">
+      <h2>Internship Offer Letter</h2>
+      <p>Date: ${new Date().toLocaleDateString()}</p>
+      <p>To: <strong>${o.name}</strong><br>${o.addr}</p>
+      <p>Dear ${o.name},</p>
+      <p>We are delighted to offer you an internship at ${cmp.hr}'s team, working as <strong>${o.course}</strong> intern for <strong>${o.dur} month(s)</strong>.</p>
+      <p>Your official communication will be shared via email (${o.email}) and phone (${o.phone}).</p>
+      <p>Please accept this offer by scanning the QR code below.</p>
+      <div class="footer">
+        <p>Sincerely,</p>
+        <p><strong>${cmp.hr}</strong>, HR – ${cmp.compName || o.compKey}</p>
+        <p>Email: ${cmp.email} | Contact: ${cmp.contact}</p>
+      </div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=Offer:${o.name}" class="qr">
+    `;
+    applyBackground(el,o.bg);
+  };
 
-    let currentPeriod = null;
-    let predictionMade = false;
-
-    async function fetchPeriodNumber() {
-        const apiUrl = 'https://api.bdg88zf.com/api/webapi/GetGameIssue';
-        const requestData = {
-            "typeId": 1,
-            "language": 0,
-            "random": "40079dcba93a48769c6ee9d4d4fae23f",
-            "signature": "D12108C4F57C549D82B23A91E0FA20AE",
-            "timestamp": 1727792520
-        };
-
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-                body: JSON.stringify(requestData)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                if (data.code === 0) {
-                    const periodNumber = data.data.issueNumber;
-                    if (periodNumber !== currentPeriod) {
-                        currentPeriod = periodNumber;
-                        predictionMade = false;
-                        resetPrediction();
-                    }
-                    document.getElementById('period-number').textContent = periodNumber;
-                }
-            }
-        } catch (error) {
-            console.error('Fetch error:', error);
-        }
-    }
-
-    function resetPrediction() {
-        const cnImg = document.getElementById('cn-img');
-        const bsCircle = document.getElementById('bs-circle');
-
-        cnImg.src = '';
-        bsCircle.textContent = 'B/S ?';
-        bsCircle.style.backgroundColor = 'transparent';
-    }
-
-    function displayPrediction() {
-        if (predictionMade) return; 
-        predictionMade = true;
-
-        
-        document.getElementById('loading-overlay').style.display = 'flex';
-
-        setTimeout(() => {
-            const randomNumber = Math.floor(Math.random() * 10); 
-            const isBig = randomNumber >= 100; 
-            const cnImg = document.getElementById('cn-img');
-            const bsCircle = document.getElementById('bs-circle');
-
-            
-            cnImg.src = imageUrls[`n${randomNumber}`];
-            bsCircle.textContent = isBig ? 'B' : 'S';
-
-            
-            if (randomNumber === 0) {
-                cnImg.style.borderColor = 'violetred';
-                bsCircle.style.backgroundColor = 'violetred';  
-            } else if (randomNumber === 1 || randomNumber === 3 || randomNumber === 7 || randomNumber === 9) {
-                cnImg.style.borderColor = 'green';
-                bsCircle.style.backgroundColor = 'green';  
-            } else if (randomNumber === 2 || randomNumber === 4 || randomNumber === 6 || randomNumber === 8) {
-                cnImg.style.borderColor = 'red';
-                bsCircle.style.backgroundColor = 'red';  
-            } else if (randomNumber === 5) {
-                cnImg.style.borderColor = 'violetgreen';
-                bsCircle.style.backgroundColor = 'violetgreen';  
-            }
-
-            
-            cnImg.style.transform = 'scale(1.2)';
-            bsCircle.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                cnImg.style.transform = 'scale(1)';
-                bsCircle.style.transform = 'scale(1)';
-            }, 300);
-
-            
-            document.getElementById('loading-overlay').style.display = 'none';
-        }, 2000); 
-    }
-
-    document.getElementById('result-button').addEventListener('click', displayPrediction);
-
-    fetchPeriodNumber();
-    setInterval(fetchPeriodNumber, 5000);
+  document.getElementById('certForm').onsubmit = e => {
+    e.preventDefault();
+    const o = {
+      name:document.getElementById('cName').value,
+      email:document.getElementById('cEmail').value,
+      phone:document.getElementById('cPhone').value,
+      course:document.getElementById('cCourse').value,
+      compKey:document.getElementById('cCompany').value,
+      dur:document.getElementById('cDuration').value,
+      bg:document.getElementById('cBg').value
+    };
+    const cmp = companyData[o.compKey];
+    const el = document.getElementById('certPreview');
+    const today = new Date(), start = new Date(today);
+    start.setMonth(start.getMonth()-o.dur);
+    el.innerHTML = `
+      <img src="${cmp.logo}" class="logo">
+      <h2>Internship Completion Certificate</h2>
+      <p>This is to certify that <strong>${o.name}</strong> has successfully completed <strong>${o.dur}-month</strong> internship in <strong>${o.course}</strong> at <strong>${cmp.hr}</strong>'s team.</p>
+      <p>Start Date: ${start.toLocaleDateString()}<br>End Date: ${today.toLocaleDateString()}</p>
+      <p>Contact: ${o.email}, ${o.phone}</p>
+      <div class="footer">
+        <p>Authorized by:</p>
+        <p><strong>${cmp.hr}</strong>, HR – ${cmp.compName || o.compKey}</p>
+        <p>Email: ${cmp.email} | Contact: ${cmp.contact}</p>
+      </div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=Certificate:${o.name}" class="qr">
+    `;
+    applyBackground(el,o.bg);
+  };
 </script>
-
 </body>
 </html>
